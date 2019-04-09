@@ -25,3 +25,20 @@ var handler = function(message){
 messages.forEach (
     message => sendMessage ( message, handler )
 )
+
+// 2(4 points)
+function User ( name ) {
+    this.name = name
+    var presence = false
+	Object.defineProperty(this, 'presense', {
+		get: function (){
+			return presence ? console.log(`${this.name} is present`) : console.log(`${this.name} is absent`)
+		},
+		set: function(newPresence){
+			presence = newPresence
+		}
+	})
+}
+
+let user = new User ( "Ivan" )
+console.info ( user.presence )
