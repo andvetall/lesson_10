@@ -32,13 +32,15 @@ function User ( name ) {
     var presence = false
 	Object.defineProperty(this, 'presense', {
 		get: function (){
-			return presence ? console.log(`${this.name} is present`) : console.log(`${this.name} is absent`)
+			return presence ? `${this.name} is present` : `${this.name} is absent`
 		},
 		set: function(newPresence){
-			presence = newPresence
-		}
+			presence = newPresence + ''
+		},
+		enumerable: true,
+		configurable: true,
+		
 	})
 }
 
 let user = new User ( "Ivan" )
-console.info ( user.presence )
